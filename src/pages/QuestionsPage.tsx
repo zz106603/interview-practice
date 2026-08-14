@@ -8,6 +8,7 @@ export function QuestionsPage() {
   const { questions, folders, activeFolderId, setActiveFolderId, addFolder, renameFolder, deleteFolder, addQuestion, updateQuestion, deleteQuestion, deleteAllQuestions, moveQuestion } = useQuestions()
   const [editing, setEditing] = useState<Question | null>(null)
   const visibleQuestions = questions.filter((item) => item.folderId === activeFolderId)
+  const activeFolder = folders.find((item) => item.id === activeFolderId) ?? folders[0]
 
   const createFolder = () => {
     const name = window.prompt('새 폴더 이름을 입력하세요.')
@@ -71,7 +72,7 @@ export function QuestionsPage() {
         <div className="section-heading list-heading">
           <div><p className="eyebrow">MY QUESTIONS</p><h2>질문 목록 <span className="count">{questions.length}</span></h2></div>
           <div className="list-tools">
-            <DataTools />
+            <DataTools folderId={activeFolderId} folderName={activeFolder?.name ?? '폴더'} />
             <button className="button delete-all-button" type="button" onClick={handleDeleteAll} disabled={!questions.length}>전체 삭제</button>
           </div>
         </div>
