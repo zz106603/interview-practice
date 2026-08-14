@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { useQuestions } from '../context/QuestionsContext'
 import { WebcamPreview } from '../components/WebcamPreview'
 import { QuestionForm } from '../components/QuestionForm'
+import { AudioRecorder } from '../components/AudioRecorder'
 import type { PracticeMode } from '../types/question'
 import { shuffle } from '../utils/shuffle'
 
@@ -111,6 +112,8 @@ export function PracticePage() {
           )}
         </div>
       </article>
+
+      <AudioRecorder sessionKey={`${current.parentId}-${current.followUpPosition ?? 'main'}`} />
 
       <div className="practice-actions">
         <button className="button secondary navigation-button" type="button" disabled={stepIndex === 0} onClick={() => move(-1)}>← 이전 질문</button>
