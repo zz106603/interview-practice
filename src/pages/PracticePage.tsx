@@ -3,6 +3,7 @@ import { useQuestions } from '../context/QuestionsContext'
 import { WebcamPreview } from '../components/WebcamPreview'
 import { QuestionForm } from '../components/QuestionForm'
 import { AudioRecorder } from '../components/AudioRecorder'
+import { AnswerTimer } from '../components/AnswerTimer'
 import type { PracticeMode } from '../types/question'
 import { shuffle } from '../utils/shuffle'
 
@@ -83,7 +84,10 @@ export function PracticePage() {
           <button className={mode === 'random' ? 'active' : ''} onClick={() => changeMode('random')}>랜덤</button>
           </div>
         </div>
-        <strong className="progress">{current.mainPosition + 1} <span>/ {order.length}</span></strong>
+        <div className="practice-status">
+          <strong className="progress">{current.mainPosition + 1} <span>/ {order.length}</span></strong>
+          <AnswerTimer />
+        </div>
       </div>
 
       <div className="interview-stage">
