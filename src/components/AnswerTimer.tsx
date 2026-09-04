@@ -7,7 +7,7 @@ const formatTime = (totalSeconds: number) => {
   return [hours, minutes, seconds].map((value) => String(value).padStart(2, '0')).join(':')
 }
 
-export function AnswerTimer() {
+export function AnswerTimer({ questionKey }: { questionKey: string }) {
   const [elapsedSeconds, setElapsedSeconds] = useState(0)
   const [isRunning, setIsRunning] = useState(false)
   const startedAtRef = useRef(0)
@@ -26,6 +26,12 @@ export function AnswerTimer() {
     return () => window.clearInterval(timerId)
   }, [isRunning])
 
+  useEffect(() => {
+    accumulatedRef.current = 0
+    startedAtRef.current = Date.now()
+    setElapsedSeconds(0)
+  }, [questionKey])
+
   const pause = () => {
     accumulatedRef.current += Date.now() - startedAtRef.current
     setElapsedSeconds(Math.floor(accumulatedRef.current / 1000))
@@ -39,10 +45,10 @@ export function AnswerTimer() {
   }
 
   return (
-    <section className={`answer-timer ${isRunning ? 'running' : ''}`} aria-label="총 답변 시간">
+    <section className={`answer-timer ${isRunning ? 'running' : ''}`} aria-label="현재 질문 답변 시간">
       <div className="timer-heading">
         <span className="timer-status" aria-hidden="true" />
-        <span>총 답변 시간</span>
+        <span>현재 질문 답변 시간</span>
       </div>
       <time dateTime={`PT${elapsedSeconds}S`}>{formatTime(elapsedSeconds)}</time>
       <div className="timer-actions">

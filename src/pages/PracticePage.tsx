@@ -86,7 +86,7 @@ export function PracticePage() {
         </div>
         <div className="practice-status">
           <strong className="progress">{current.mainPosition + 1} <span>/ {order.length}</span></strong>
-          <AnswerTimer />
+          <AnswerTimer questionKey={`${current.parentId}-${current.followUpPosition ?? 'main'}`} />
         </div>
       </div>
 
