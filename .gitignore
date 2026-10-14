@@ -5,3 +5,5 @@ dist
 *.tsbuildinfo
 vite-dev*.log
 docs/
+.idea
+
