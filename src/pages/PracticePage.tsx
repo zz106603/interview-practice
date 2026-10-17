@@ -64,6 +64,37 @@ export function PracticePage() {
     setShowAnswer(false)
   }
 
+  useEffect(() => {
+    const handlePracticeShortcuts = (event: KeyboardEvent) => {
+      const isArrowKey = event.key === 'ArrowLeft' || event.key === 'ArrowRight'
+      const isSpaceKey = event.code === 'Space'
+      if (isEditing || (!isArrowKey && !isSpaceKey)) return
+
+      const target = event.target
+      if (target instanceof HTMLElement) {
+        const tagName = target.tagName
+        if (target.isContentEditable || ['INPUT', 'TEXTAREA', 'SELECT', 'AUDIO', 'VIDEO'].includes(tagName)) return
+      }
+
+      if (isSpaceKey) {
+        event.preventDefault()
+        setShowAnswer((current) => !current)
+        return
+      }
+
+      const offset = event.key === 'ArrowLeft' ? -1 : 1
+      const nextIndex = stepIndex + offset
+      if (nextIndex < 0 || nextIndex >= steps.length) return
+
+      event.preventDefault()
+      setStepIndex(nextIndex)
+      setShowAnswer(false)
+    }
+
+    window.addEventListener('keydown', handlePracticeShortcuts)
+    return () => window.removeEventListener('keydown', handlePracticeShortcuts)
+  }, [isEditing, stepIndex, steps.length])
+
   if (!practiceQuestions.length || !current) return (
     <main className="page practice-page">
       <div className="practice-folder-picker"><label>연습 폴더<select value={activeFolderId} onChange={(event) => setActiveFolderId(event.target.value)}>{folders.map((folder) => <option key={folder.id} value={folder.id}>{folder.name}</option>)}</select></label></div>
@@ -121,7 +152,7 @@ export function PracticePage() {
 
       <div className="practice-actions">
         <button className="button secondary navigation-button" type="button" disabled={stepIndex === 0} onClick={() => move(-1)}>← 이전 질문</button>
-        {showAnswer && <button className="button subtle" type="button" onClick={() => setShowAnswer(false)}>답변 숨기기</button>}
+        {showAnswer ? <button className="button subtle" type="button" onClick={() => setShowAnswer(false)}>답변 숨기기 (Space)</button> : <span className="keyboard-hint">← → 이동 · Space 답변 보기</span>}
         <button className="button primary navigation-button" type="button" disabled={isLastStep} onClick={() => move(1)}>{isLastStep ? '연습 완료' : '다음 질문 →'}</button>
       </div>
 
