@@ -1,0 +1,424 @@
+[
+  {
+    "category": "Database",
+    "question": "Index란 무엇이고 왜 조회가 빨라지나요?",
+    "answer": "Index는 데이터를 빠르게 찾기 위해 별도로 만드는 검색 구조입니다. Index가 없으면 조건에 맞는 데이터를 찾기 위해 많은 Row를 확인하는 Full Table Scan이 발생할 수 있지만, Index가 있으면 B-Tree 계열의 탐색 구조를 이용해 필요한 데이터의 위치를 빠르게 찾을 수 있습니다. 대신 별도의 저장 공간이 필요하고 INSERT, UPDATE, DELETE 시 Index도 함께 수정해야 하는 비용이 있습니다.",
+    "followUps": [
+      {
+        "question": "왜 B+Tree 계열 구조를 사용하나요?",
+        "answer": "디스크 기반 데이터베이스에서는 한 번의 I/O 비용이 크기 때문에 Tree의 높이를 낮이는 것이 중요합니다. B+Tree는 한 노드에 여러 Key를 저장해 Tree 높이를 낮출 수 있고, Leaf Node가 순서대로 연결되어 있어 범위 검색에도 유리합니다."
+      },
+      {
+        "question": "Index가 있어도 사용되지 않을 수 있나요?",
+        "answer": "그럴 수 있습니다. 조회 조건이 Index의 선두 컬럼을 사용하지 않거나, 조회 대상이 너무 많아 Full Scan이 더 유리하다고 옵티마이저가 판단하는 경우 등이 있습니다. 그래서 Index 존재 여부만 보지 않고 실행 계획을 확인해야 합니다."
+      }
+    ]
+  },
+  {
+    "category": "Database",
+    "question": "Index를 많이 만들면 왜 안 되나요?",
+    "answer": "Index도 별도의 데이터 구조이기 때문에 저장 공간이 필요하고, INSERT, UPDATE, DELETE가 발생할 때 Table 데이터뿐 아니라 Index도 같이 변경해야 합니다. 따라서 Index가 지나치게 많으면 쓰기 성능이 저하될 수 있어서 실제 조회 조건과 데이터 분포를 보고 필요한 Index를 만들어야 합니다.",
+    "followUps": [
+      {
+        "question": "어떤 컬럼에 Index를 만드는 것이 좋나요?",
+        "answer": "자주 조회 조건이나 JOIN 조건에 사용되고, 데이터를 충분히 걸러낼 수 있는 컬럼을 우선 고려합니다. 다만 Cardinality만 보는 것이 아니라 실제 쿼리 패턴과 정렬 조건, 데이터 분포까지 함께 봐야 합니다."
+      },
+      {
+        "question": "Cardinality가 무엇인가요?",
+        "answer": "컬럼 값이 얼마나 다양하게 분포되어 있는지를 나타내는 개념입니다. 일반적으로 고유한 값이 많아 조건으로 데이터를 많이 줄일 수 있는 컬럼이 Index 효과를 보기 좋습니다."
+      }
+    ]
+  },
+  {
+    "category": "Database",
+    "question": "복합 Index에서 컬럼 순서가 중요한 이유는 무엇인가요?",
+    "answer": "복합 Index는 지정된 컬럼 순서에 따라 정렬되기 때문에 컬럼 순서가 중요합니다. 예를 들어 (name, age) Index라면 name 조건이나 name과 age를 함께 사용하는 조건은 활용하기 좋지만 age만 사용하는 경우에는 효율적으로 활용하기 어려울 수 있습니다. 실제 조회 조건과 정렬 방식을 고려해서 순서를 정해야 합니다.",
+    "followUps": [
+      {
+        "question": "(A, B) 복합 Index가 있을 때 B만 조건으로 조회하면 어떻게 되나요?",
+        "answer": "일반적으로는 선두 컬럼인 A를 사용하지 않기 때문에 해당 복합 Index를 효율적으로 활용하기 어렵습니다. 이를 Leftmost Prefix 관점에서 이해할 수 있습니다."
+      },
+      {
+        "question": "복합 Index의 컬럼 순서는 Cardinality가 높은 순서로 정하면 되나요?",
+        "answer": "항상 그렇지는 않습니다. Cardinality도 고려 요소지만 실제 WHERE 조건, JOIN 조건, 정렬 방식과 쿼리 사용 빈도를 함께 봐야 합니다."
+      }
+    ]
+  },
+  {
+    "category": "Database",
+    "question": "Query가 느리면 어디부터 확인하나요?",
+    "answer": "먼저 실제 실행되는 SQL과 실행 계획을 확인합니다. Full Scan이 발생하는지, 어떤 Index를 사용하고 있는지, 예상 조회 Row 수나 JOIN 순서 등을 보고 원인을 좁힙니다. 이후 조건이나 JOIN, Index를 개선한 뒤 다시 측정합니다. 느리다고 바로 Index부터 추가하기보다 실행 계획을 통해 원인을 먼저 확인하는 것이 중요합니다.",
+    "followUps": [
+      {
+        "question": "실행 계획에서는 무엇을 보나요?",
+        "answer": "Table 전체를 읽는지, 어떤 Index를 사용하는지, 예상 조회 Row 수가 어느 정도인지, JOIN 순서가 어떤지 등을 확인합니다."
+      },
+      {
+        "question": "Index가 있는데도 Full Scan이 발생할 수 있나요?",
+        "answer": "가능합니다. 조회 대상 비율이 너무 높거나 조건이 Index를 제대로 활용하지 못하는 경우에는 옵티마이저가 Full Scan이 더 효율적이라고 판단할 수 있습니다."
+      }
+    ]
+  },
+  {
+    "category": "Database",
+    "question": "Transaction이란 무엇이고 ACID는 무엇인가요?",
+    "answer": "Transaction은 여러 데이터베이스 작업을 하나의 논리적인 작업 단위로 묶어서 모두 성공하거나 실패하도록 처리하는 것입니다. ACID는 Transaction의 대표적인 특성으로 Atomicity는 전부 성공하거나 실패하는 원자성, Consistency는 데이터 규칙을 유지하는 일관성, Isolation은 동시에 실행되는 Transaction 간 영향을 제어하는 격리성, Durability는 Commit된 데이터를 보존하는 지속성을 의미합니다.",
+    "followUps": [
+      {
+        "question": "Transaction 중간에 예외가 발생하면 어떻게 되나요?",
+        "answer": "Transaction 정책에 따라 Rollback이 수행되어 해당 Transaction에서 수행한 변경을 되돌릴 수 있습니다. Spring에서는 예외 종류와 @Transactional 설정에 따라 Rollback 여부가 달라질 수 있습니다."
+      },
+      {
+        "question": "Isolation은 왜 필요한가요?",
+        "answer": "여러 Transaction이 동시에 같은 데이터를 다룰 때 서로의 중간 상태나 변경 때문에 데이터 정합성이 깨지는 문제를 제어하기 위해 필요합니다."
+      }
+    ]
+  },
+  {
+    "category": "Database",
+    "question": "Isolation Level은 왜 필요한가요?",
+    "answer": "여러 Transaction이 동시에 실행될 때 데이터 정합성과 동시 처리 성능 사이의 수준을 결정하기 위해 필요합니다. 격리 수준이 낮으면 동시성은 높지만 Dirty Read 같은 문제가 발생할 수 있고, 높이면 정합성은 강화되지만 동시 처리 성능이 떨어질 수 있습니다. 대표적으로 READ UNCOMMITTED, READ COMMITTED, REPEATABLE READ, SERIALIZABLE이 있습니다.",
+    "followUps": [
+      {
+        "question": "Dirty Read란 무엇인가요?",
+        "answer": "다른 Transaction이 아직 Commit하지 않은 데이터를 읽는 현상입니다."
+      },
+      {
+        "question": "Non-Repeatable Read란 무엇인가요?",
+        "answer": "같은 Transaction 안에서 같은 Row를 두 번 조회했는데 다른 Transaction의 수정과 Commit 때문에 결과가 달라지는 현상입니다."
+      },
+      {
+        "question": "Phantom Read란 무엇인가요?",
+        "answer": "같은 조건으로 다시 조회했을 때 다른 Transaction이 추가한 Row 때문에 이전에는 없던 Row가 새로 나타나는 현상입니다."
+      },
+      {
+        "question": "REPEATABLE READ에서는 Phantom Read가 항상 발생하나요?",
+        "answer": "항상 그렇다고 단정할 수 없습니다. 실제 동작은 DBMS의 MVCC와 Lock 구현 방식에 따라 차이가 있습니다."
+      }
+    ]
+  },
+  {
+    "category": "Database",
+    "question": "비관적 Lock과 낙관적 Lock의 차이는 무엇인가요?",
+    "answer": "비관적 Lock은 충돌이 발생할 가능성이 높다고 보고 먼저 Lock을 획득한 뒤 작업하는 방식입니다. 충돌을 확실히 방지하기 쉽지만 대기가 증가하고 Deadlock 가능성이 있습니다. 낙관적 Lock은 충돌이 자주 발생하지 않는다고 보고 Lock을 먼저 잡지 않고 Version 같은 값을 이용해 수정 시점에 충돌 여부를 확인합니다.",
+    "followUps": [
+      {
+        "question": "비관적 Lock은 언제 사용하는 것이 적절한가요?",
+        "answer": "같은 데이터에 대한 충돌 가능성이 높고, 충돌이 발생했을 때 재시도보다 먼저 직렬화해서 처리하는 것이 안전한 경우에 적합합니다."
+      },
+      {
+        "question": "낙관적 Lock은 언제 사용하는 것이 적절한가요?",
+        "answer": "충돌 빈도가 낮고 동시 처리 성능을 높이고 싶으며, 충돌 발생 시 재시도나 실패 처리가 가능한 경우에 적합합니다."
+      },
+      {
+        "question": "JPA에서는 낙관적 Lock을 어떻게 구현할 수 있나요?",
+        "answer": "@Version 필드를 두고 Version 값을 비교해 수정 시점에 다른 Transaction의 선행 변경 여부를 확인하는 방식이 대표적입니다."
+      }
+    ]
+  },
+  {
+    "category": "Database",
+    "question": "Deadlock이란 무엇이고 어떻게 줄일 수 있나요?",
+    "answer": "Deadlock은 두 개 이상의 Transaction이 서로가 가진 Lock을 기다리면서 더 이상 진행하지 못하는 상태입니다. 줄이기 위해서는 Lock 획득 순서를 일정하게 유지하고 Transaction을 짧게 가져가며 불필요한 Lock을 줄일 수 있습니다. Deadlock이 발생하면 DB가 Transaction 하나를 Rollback해서 상황을 해제하기도 합니다.",
+    "followUps": [
+      {
+        "question": "Deadlock의 발생 조건 네 가지는 무엇인가요?",
+        "answer": "상호 배제, 점유와 대기, 비선점, 순환 대기입니다."
+      },
+      {
+        "question": "Deadlock과 단순 Lock 대기의 차이는 무엇인가요?",
+        "answer": "단순 Lock 대기는 다른 Transaction이 Lock을 해제하면 진행할 수 있지만, Deadlock은 서로가 서로의 자원을 기다리는 순환 구조라 외부 개입 없이는 진행할 수 없습니다."
+      },
+      {
+        "question": "Index가 Deadlock과도 관련이 있나요?",
+        "answer": "적절한 Index가 없으면 더 많은 Row를 탐색하거나 Lock 범위가 커질 수 있어 Lock 경합 가능성이 높아질 수 있습니다. 그래서 Lock 순서와 Transaction 길이뿐 아니라 쿼리와 Index도 함께 봐야 합니다."
+      }
+    ]
+  },
+  {
+    "category": "Spring",
+    "question": "IoC와 DI는 무엇이고 둘의 관계는 무엇인가요?",
+    "answer": "IoC는 객체 생성과 관리의 제어권을 개발자가 직접 가지는 것이 아니라 Spring Container가 가지는 것입니다. DI는 객체가 필요로 하는 다른 객체를 직접 생성하지 않고 외부에서 주입받는 방식입니다. IoC가 더 큰 개념이고 DI는 IoC를 구현하는 대표적인 방법입니다.",
+    "followUps": [
+      {
+        "question": "DI를 사용하면 어떤 장점이 있나요?",
+        "answer": "객체가 구체적인 구현체를 직접 생성하지 않기 때문에 결합도를 낮출 수 있고, 의존성을 교체하거나 테스트하기 쉬워집니다."
+      },
+      {
+        "question": "왜 생성자 주입을 많이 사용하나요?",
+        "answer": "필요한 의존성이 명확하고 final을 사용할 수 있으며, 객체 생성 시점에 필요한 의존성을 보장할 수 있고 테스트하기도 쉽기 때문입니다."
+      }
+    ]
+  },
+  {
+    "category": "Spring",
+    "question": "Spring Bean이란 무엇인가요?",
+    "answer": "Spring Bean은 Spring Container가 생성하고 관리하는 객체입니다. @Service, @Repository, @Controller 같은 Component 계열 클래스를 Spring이 찾아 Bean으로 등록하고 필요한 곳에 의존성을 주입합니다.",
+    "followUps": [
+      {
+        "question": "Spring Bean의 기본 Scope는 무엇인가요?",
+        "answer": "기본 Scope는 Singleton입니다. 일반적으로 애플리케이션 안에서 하나의 Bean 인스턴스를 여러 곳에서 공유합니다."
+      },
+      {
+        "question": "Component Scan이 무엇인가요?",
+        "answer": "Spring이 @Component 계열 애노테이션이 붙은 클래스를 탐색해서 Bean으로 등록하는 과정입니다."
+      }
+    ]
+  },
+  {
+    "category": "Spring",
+    "question": "Spring Bean은 왜 Stateless하게 만드는 것이 중요한가요?",
+    "answer": "Spring Bean의 기본 Scope는 Singleton이기 때문에 하나의 Bean을 여러 요청 Thread가 함께 사용할 수 있습니다. Service Bean 내부에 요청마다 변경되는 상태를 Instance Field로 두면 여러 Thread가 동시에 접근해서 값이 섞이는 문제가 생길 수 있습니다. 그래서 일반적인 Service Bean은 요청 상태를 저장하지 않는 Stateless 구조로 만드는 것이 안전합니다.",
+    "followUps": [
+      {
+        "question": "Singleton Bean 자체가 Thread-safe한가요?",
+        "answer": "아닙니다. Singleton은 인스턴스가 하나라는 의미일 뿐 Thread-safe를 보장하지 않습니다. 변경 가능한 공유 상태가 있다면 동시성 문제가 발생할 수 있습니다."
+      },
+      {
+        "question": "지역 변수는 왜 상대적으로 안전한가요?",
+        "answer": "메서드의 지역 변수는 각 Thread의 Stack에 저장되기 때문에 일반적으로 다른 Thread와 직접 공유되지 않습니다."
+      }
+    ]
+  },
+  {
+    "category": "Spring",
+    "question": "Spring MVC 요청 처리 흐름을 설명해주세요.",
+    "answer": "HTTP 요청이 들어오면 Tomcat이 요청을 받고 Thread Pool에서 Thread를 할당합니다. 이후 Filter를 지나 DispatcherServlet으로 들어가고, DispatcherServlet이 적절한 Controller를 찾아 요청을 전달합니다. 이후 Interceptor, Controller, Service, Repository를 거쳐 Database를 호출하고 결과를 다시 응답으로 반환합니다.",
+    "followUps": [
+      {
+        "question": "DispatcherServlet은 어떤 역할을 하나요?",
+        "answer": "Spring MVC에서 요청을 받아 어떤 Controller가 처리할지 찾고 전체 요청 처리 흐름을 조정하는 Front Controller 역할을 합니다."
+      },
+      {
+        "question": "Filter와 Interceptor의 차이는 무엇인가요?",
+        "answer": "Filter는 Servlet 영역에서 DispatcherServlet 앞뒤로 동작하고, Interceptor는 Spring MVC 내부에서 Controller 호출 전후로 동작합니다."
+      }
+    ]
+  },
+  {
+    "category": "Spring",
+    "question": "@Transactional은 어떻게 동작하나요?",
+    "answer": "Spring은 일반적으로 Proxy를 이용해 @Transactional을 처리합니다. 호출이 Proxy를 통과하면 실제 Service 메서드를 실행하기 전에 Transaction을 시작하고, 정상적으로 끝나면 Commit하고 예외가 발생하면 조건에 따라 Rollback합니다. 즉 @Transactional 메서드 내부에 Transaction 코드가 직접 들어가는 것이 아니라 Proxy가 앞뒤에서 처리합니다.",
+    "followUps": [
+      {
+        "question": "Spring의 기본 Rollback 기준은 무엇인가요?",
+        "answer": "기본적으로 RuntimeException과 Error가 발생하면 Rollback하고, Checked Exception은 기본 Rollback 대상이 아닙니다. 필요하면 rollbackFor 같은 설정으로 변경할 수 있습니다."
+      },
+      {
+        "question": "Proxy를 사용하는 이유는 무엇인가요?",
+        "answer": "비즈니스 로직을 직접 수정하지 않고 메서드 호출 앞뒤에 Transaction 시작, Commit, Rollback 같은 공통 기능을 적용하기 위해서입니다."
+      }
+    ]
+  },
+  {
+    "category": "Spring",
+    "question": "같은 클래스 내부에서 @Transactional 메서드를 호출하면 왜 문제가 될 수 있나요?",
+    "answer": "Spring의 Transaction은 Proxy를 통해 적용되는데 같은 객체 내부에서 메서드를 직접 호출하면 Proxy를 거치지 않을 수 있습니다. 그래서 내부에서 호출한 @Transactional 메서드의 Transaction 기능이 기대대로 적용되지 않는 Self Invocation 문제가 발생할 수 있습니다.",
+    "followUps": [
+      {
+        "question": "왜 Proxy를 거치지 않게 되나요?",
+        "answer": "외부에서 Bean을 호출할 때는 Proxy가 호출을 가로채지만, 같은 객체 안에서 this를 통해 다른 메서드를 직접 호출하면 현재 객체 내부 호출이기 때문에 Proxy를 다시 통과하지 않기 때문입니다."
+      }
+    ]
+  },
+  {
+    "category": "Java",
+    "question": "JDK와 JVM의 차이와 Java 실행 과정을 설명해주세요.",
+    "answer": "JDK는 Java 프로그램을 개발하고 실행하기 위한 도구 모음이고 JVM은 컴파일된 Java Bytecode를 실행하는 환경입니다. Java 소스 코드는 javac로 컴파일되면서 .class Bytecode가 되고, JVM이 이 Bytecode를 실행합니다. 그래서 운영체제에 맞는 JVM이 있다면 같은 Java 프로그램을 실행할 수 있습니다.",
+    "followUps": [
+      {
+        "question": "Bytecode가 무엇인가요?",
+        "answer": "Java 소스 코드를 컴파일했을 때 생성되는 JVM이 실행할 수 있는 중간 형태의 코드입니다."
+      },
+      {
+        "question": "Java가 플랫폼 독립적이라고 하는 이유는 무엇인가요?",
+        "answer": "Java 프로그램이 특정 운영체제의 기계어로 바로 실행되는 것이 아니라 Bytecode로 컴파일되고, 각 운영체제에 맞는 JVM이 이를 실행하기 때문입니다."
+      }
+    ]
+  },
+  {
+    "category": "Java",
+    "question": "Stack과 Heap의 차이는 무엇인가요?",
+    "answer": "Stack은 Thread마다 독립적으로 존재하고 메서드 호출 정보, 지역 변수, 매개변수 등을 관리합니다. Heap에는 객체와 배열 등이 저장되며 여러 Thread가 공유합니다. Heap의 객체는 GC의 관리 대상이고 여러 Thread가 같은 객체를 수정하면 동시성 문제가 발생할 수 있습니다.",
+    "followUps": [
+      {
+        "question": "Heap을 여러 Thread가 공유하면 어떤 문제가 생길 수 있나요?",
+        "answer": "여러 Thread가 같은 객체의 상태를 동시에 변경하면 Race Condition 같은 동시성 문제가 발생할 수 있습니다."
+      },
+      {
+        "question": "Stack은 왜 Thread마다 따로 있나요?",
+        "answer": "각 Thread가 자신의 메서드 호출 흐름과 지역 변수, 실행 상태를 독립적으로 관리해야 하기 때문입니다."
+      }
+    ]
+  },
+  {
+    "category": "Java",
+    "question": "==와 equals()의 차이는 무엇인가요?",
+    "answer": "참조형에서 ==는 두 변수가 같은 객체를 가리키는지 비교하고 equals()는 객체의 논리적인 값이 같은지를 판단할 때 사용합니다. 그래서 내용이 같은 두 객체라도 서로 다른 객체라면 ==는 false일 수 있습니다.",
+    "followUps": [
+      {
+        "question": "String 비교에 == 대신 equals()를 사용하는 이유는 무엇인가요?",
+        "answer": "문자열의 내용이 같은지를 비교하려면 객체의 참조가 아니라 논리적인 값을 비교해야 하기 때문입니다."
+      },
+      {
+        "question": "직접 만든 객체의 값 비교는 어떻게 하나요?",
+        "answer": "논리적으로 같은 객체의 기준을 정한 뒤 equals()를 재정의하고, Hash 기반 Collection을 고려해 hashCode()도 함께 재정의하는 것이 일반적입니다."
+      }
+    ]
+  },
+  {
+    "category": "Java",
+    "question": "equals()와 hashCode()를 왜 같이 재정의하나요?",
+    "answer": "HashMap이나 HashSet 같은 Hash 기반 Collection에서는 먼저 hashCode()를 이용해 객체가 저장된 위치를 찾고, 필요한 경우 equals()를 이용해 실제로 같은 객체인지 비교합니다. 따라서 논리적으로 같은 객체라면 Hash 기반 Collection에서도 동일하게 취급될 수 있도록 둘을 함께 재정의하는 것이 중요합니다.",
+    "followUps": [
+      {
+        "question": "equals()만 재정의하면 어떤 문제가 생길 수 있나요?",
+        "answer": "논리적으로 같은 객체인데도 hashCode()가 다르면 서로 다른 Bucket 후보로 갈 수 있어 HashMap이나 HashSet에서 같은 객체로 정상 처리되지 않을 수 있습니다."
+      },
+      {
+        "question": "HashSet에서도 hashCode()가 중요한 이유는 무엇인가요?",
+        "answer": "HashSet도 내부적으로 Hash 기반 구조를 이용해 중복 여부를 판단하기 때문에 hashCode()와 equals()가 함께 중요합니다."
+      }
+    ]
+  },
+  {
+    "category": "Java",
+    "question": "HashMap은 어떻게 데이터를 저장하고 찾나요?",
+    "answer": "HashMap은 Key의 hashCode()를 이용해서 데이터를 저장하거나 조회할 위치를 찾습니다. 서로 다른 Key가 같은 위치를 가리키는 Hash 충돌이 발생할 수 있고, 이런 경우 같은 위치에 있는 여러 Key 중 실제 Key를 구분하기 위해 equals() 등을 사용합니다.",
+    "followUps": [
+      {
+        "question": "Hash 충돌이 무엇인가요?",
+        "answer": "서로 다른 Key가 같은 Bucket 위치를 가리키는 상황입니다."
+      },
+      {
+        "question": "HashMap의 평균 조회가 빠른 이유는 무엇인가요?",
+        "answer": "Key의 hashCode()를 이용해 전체 데이터를 순차적으로 찾지 않고 바로 Bucket 위치를 좁힐 수 있기 때문입니다."
+      }
+    ]
+  },
+  {
+    "category": "Java",
+    "question": "Checked Exception과 Unchecked Exception의 차이는 무엇인가요?",
+    "answer": "Checked Exception은 컴파일러가 예외를 처리하거나 호출한 쪽으로 전달하도록 요구하는 예외이고 IOException 등이 대표적입니다. Unchecked Exception은 RuntimeException 계열로 컴파일러가 처리를 강제하지 않습니다. Spring의 비즈니스 예외도 RuntimeException을 상속해서 만드는 경우가 많습니다.",
+    "followUps": [
+      {
+        "question": "Spring Transaction Rollback과 어떤 관계가 있나요?",
+        "answer": "Spring의 기본 @Transactional 설정에서는 RuntimeException과 Error가 발생하면 Rollback하지만 Checked Exception은 기본 Rollback 대상이 아닙니다."
+      },
+      {
+        "question": "Error와 Exception의 차이는 무엇인가요?",
+        "answer": "Exception은 일반적으로 애플리케이션에서 처리할 수 있는 문제를 표현하고, Error는 OutOfMemoryError나 StackOverflowError처럼 JVM이나 시스템 수준의 심각한 문제를 나타내는 경우가 많습니다."
+      }
+    ]
+  },
+  {
+    "category": "OS",
+    "question": "Process와 Thread의 차이는 무엇인가요?",
+    "answer": "Process는 실행 중인 프로그램과 그 자원을 관리하는 단위이고 Thread는 Process 내부에서 실제 코드를 실행하는 흐름입니다. Process는 기본적으로 독립적인 메모리 공간을 가지지만 같은 Process 안의 Thread들은 Heap 같은 일부 자원을 공유하고 각자의 Stack을 가집니다. 그래서 Thread 간 데이터 공유는 쉽지만 동시성 문제도 발생할 수 있습니다.",
+    "followUps": [
+      {
+        "question": "Spring Boot 애플리케이션은 Process인가요?",
+        "answer": "네. 일반적으로 Spring Boot 애플리케이션 하나가 JVM Process로 실행되고, 내부의 Tomcat Thread Pool에 있는 여러 Thread가 요청을 처리합니다."
+      },
+      {
+        "question": "HTTP 요청마다 Process가 새로 생기나요?",
+        "answer": "아닙니다. 하나의 Spring Boot Process 안에서 Thread Pool의 여러 Thread가 요청을 나눠 처리합니다."
+      },
+      {
+        "question": "같은 Process의 Thread들은 어떤 메모리를 공유하나요?",
+        "answer": "Heap 같은 Process 단위의 메모리를 공유하고 각 Thread는 자신만의 Stack을 가집니다."
+      }
+    ]
+  },
+  {
+    "category": "OS",
+    "question": "Race Condition이란 무엇이고 왜 발생하나요?",
+    "answer": "Race Condition은 여러 Thread가 공유 데이터를 동시에 읽거나 변경하면서 실행 순서에 따라 결과가 달라지는 현상입니다. 같은 Process의 Thread들이 Heap의 객체를 공유할 수 있기 때문에 여러 Thread가 같은 객체의 상태를 동시에 수정하면 발생할 수 있습니다.",
+    "followUps": [
+      {
+        "question": "Critical Section이 무엇인가요?",
+        "answer": "여러 Thread가 동시에 접근하면 데이터 정합성 문제가 생길 수 있어서 동시 접근을 제어해야 하는 코드 영역입니다."
+      },
+      {
+        "question": "Mutex와 Semaphore의 차이는 무엇인가요?",
+        "answer": "Mutex는 일반적으로 한 번에 하나의 Thread만 Critical Section에 접근하게 하는 방식이고, Semaphore는 정해진 개수의 Thread까지 동시에 접근하도록 허용하는 방식입니다."
+      },
+      {
+        "question": "Java에서는 Race Condition을 어떻게 제어할 수 있나요?",
+        "answer": "synchronized 같은 동기화 기능을 이용해 Critical Section에 한 번에 하나의 Thread만 접근하도록 제어할 수 있습니다. 상황에 따라 Lock이나 원자적 연산 같은 방법도 사용할 수 있습니다."
+      }
+    ]
+  },
+  {
+    "category": "OS",
+    "question": "Blocking / Non-Blocking과 Synchronous / Asynchronous의 차이는 무엇인가요?",
+    "answer": "Blocking과 Non-Blocking은 호출한 Thread가 작업 결과를 기다리면서 멈추는지를 기준으로 구분합니다. Blocking은 작업 완료까지 Thread가 기다리고 Non-Blocking은 완료되지 않아도 Thread가 다른 일을 할 수 있습니다. 반면 Sync와 Async는 작업 완료 결과를 어떤 흐름에서 처리하는지를 보는 개념입니다. 그래서 Blocking과 Sync는 같은 의미가 아닙니다.",
+    "followUps": [
+      {
+        "question": "Spring MVC와 JDBC는 일반적으로 어떤 방식인가요?",
+        "answer": "일반적인 Spring MVC와 JDBC 조합은 요청 Thread가 DB 결과를 기다리는 Blocking 방식으로 동작합니다."
+      },
+      {
+        "question": "RabbitMQ를 비동기로 사용하는 이유는 무엇인가요?",
+        "answer": "요청을 보낸 쪽이 실제 작업이 모두 끝날 때까지 기다리지 않고 작업을 큐에 넘긴 뒤 다른 흐름을 계속 진행할 수 있고, Consumer가 나중에 작업을 처리하도록 분리할 수 있기 때문입니다."
+      }
+    ]
+  },
+  {
+    "category": "Network",
+    "question": "TCP와 UDP의 차이는 무엇이고 TCP 3-Way Handshake는 왜 필요한가요?",
+    "answer": "TCP는 상대방과 연결을 맺고 데이터를 전달하며 전달 여부와 순서를 보장하고 손실 시 재전송을 지원합니다. UDP는 별도의 연결 과정이 없고 이러한 보장을 기본 제공하지 않는 대신 상대적으로 가볍습니다. TCP에서는 데이터를 보내기 전에 SYN, SYN+ACK, ACK의 3-Way Handshake를 통해 양쪽이 서로 송수신 가능한 상태인지 확인하고 연결을 만듭니다.",
+    "followUps": [
+      {
+        "question": "HTTP는 TCP 위에서 동작하나요?",
+        "answer": "HTTP/1.1과 HTTP/2는 기본적으로 TCP 위에서 동작합니다."
+      },
+      {
+        "question": "HTTP/3는 무엇을 사용하나요?",
+        "answer": "HTTP/3는 UDP 기반의 QUIC 프로토콜을 사용합니다."
+      },
+      {
+        "question": "왜 2-Way가 아니라 3-Way Handshake인가요?",
+        "answer": "클라이언트와 서버 양쪽이 서로의 송신과 수신이 가능한 상태인지 확인해야 하기 때문입니다. SYN과 SYN+ACK만으로는 클라이언트가 서버의 응답까지 정상적으로 받았다는 것을 서버가 확정할 수 없어서 마지막 ACK가 필요합니다."
+      }
+    ]
+  },
+  {
+    "category": "Network",
+    "question": "HTTP가 Stateless하다는 것은 무엇인가요?",
+    "answer": "HTTP가 Stateless하다는 것은 각각의 HTTP 요청이 독립적이고 HTTP 자체는 이전 요청의 상태를 기억하지 않는다는 의미입니다. 그래서 로그인처럼 여러 요청에 걸쳐 상태를 유지해야 하는 경우 Cookie, Session, JWT 같은 방식을 추가로 사용합니다.",
+    "followUps": [
+      {
+        "question": "Cookie와 Session의 차이는 무엇인가요?",
+        "answer": "Cookie는 브라우저가 값을 저장하고 서버에 전달하는 방식이고, Session은 서버가 사용자의 로그인 상태 같은 정보를 관리하는 방식입니다. 일반적인 Session 인증에서는 Session ID를 Cookie로 전달합니다."
+      },
+      {
+        "question": "Session ID는 보통 어디에 저장하나요?",
+        "answer": "브라우저의 Cookie에 저장하고 이후 요청마다 서버로 전달하는 방식이 일반적입니다."
+      },
+      {
+        "question": "Session과 JWT의 차이는 무엇인가요?",
+        "answer": "Session은 로그인 상태를 주로 서버 측 저장소에서 관리하고, JWT 방식은 클라이언트가 Token을 보관해 요청마다 전달하면 서버가 서명을 검증해 사용자를 판단합니다."
+      }
+    ]
+  },
+  {
+    "category": "Network",
+    "question": "GET, POST, PUT, PATCH, DELETE의 차이와 HTTP 멱등성이란 무엇인가요?",
+    "answer": "GET은 조회, POST는 생성이나 처리를 요청할 때 주로 사용하고, PUT은 자원을 전체적으로 교체하는 수정, PATCH는 일부 수정, DELETE는 삭제에 사용합니다. 멱등성은 같은 요청을 한 번 보내든 여러 번 보내든 서버의 최종 상태가 동일하게 유지되는 성질입니다. 일반적으로 GET, PUT, DELETE는 멱등적으로 설계되고 POST는 멱등성을 보장하지 않습니다. PATCH는 구현 방식에 따라 달라질 수 있습니다.",
+    "followUps": [
+      {
+        "question": "DELETE를 여러 번 호출하면 두 번째부터 404가 날 수도 있는데 왜 멱등인가요?",
+        "answer": "멱등성은 응답이 항상 같다는 의미가 아니라 같은 요청을 여러 번 수행해도 서버 자원의 최종 상태가 같다는 의미입니다. 이미 삭제된 자원을 다시 DELETE해도 최종 상태는 삭제된 상태로 동일합니다."
+      },
+      {
+        "question": "PUT과 PATCH의 차이는 무엇인가요?",
+        "answer": "PUT은 일반적으로 자원 전체를 전달해 교체하는 의미이고, PATCH는 자원의 일부 필드만 변경하는 의미로 사용합니다."
+      },
+      {
+        "question": "POST도 멱등하게 만들 수 있나요?",
+        "answer": "HTTP Method 자체가 멱등성을 보장하지는 않지만, 멱등 키나 중복 요청 제어 같은 애플리케이션 설계를 추가해서 같은 요청이 중복 처리되지 않도록 만들 수 있습니다."
+      }
+    ]
+  }
+]
