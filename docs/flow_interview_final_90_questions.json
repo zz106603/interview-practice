@@ -1,0 +1,636 @@
+[
+  {
+    "category": "기본",
+    "question": "간단하게 자기소개해주세요.",
+    "answer": "안녕하세요. Java와 Spring Boot 기반 백엔드 개발자로 약 2년 3개월 동안 정밀의료 데이터 플랫폼과 재무자료 연계 서비스를 개발했습니다. 대용량 데이터 조회와 비동기 처리, 권한 관리 기능을 맡았고 운영 중 발생한 조회 지연과 처리 병목을 개선한 경험이 있습니다. 퇴사 이후에도 Spring 기반 개인 프로젝트와 RAG, MCP 같은 기술을 직접 구현하며 개발을 이어왔습니다. 플로우에서는 이런 데이터 처리와 시스템 연계 경험을 엔터프라이즈 고객 환경의 백엔드 개발과 운영에 활용하고 싶습니다.",
+    "followUps": []
+  },
+  {
+    "category": "경력",
+    "question": "이전 회사에서는 어떤 일을 하셨나요?",
+    "answer": "더존비즈온에서 Java와 Spring Boot 기반 백엔드 개발을 담당했습니다. 정밀의료 플랫폼에서는 임상 데이터 조회·가공 API와 Spark·Livy 기반 분석 처리, 접근 권한 기능을 개발했고, 신한은행 연계 프로젝트에서는 기업 재무자료를 조회·가공해 내부 연계 흐름으로 전달하는 API와 RabbitMQ 기반 비동기 처리 기능을 개발했습니다. 기능 개발뿐 아니라 운영 중 발생한 성능 저하와 처리 병목을 개선하는 업무도 맡았습니다.",
+    "followUps": []
+  },
+  {
+    "category": "경력",
+    "question": "본인의 백엔드 개발자로서 강점은 무엇인가요?",
+    "answer": "기능 하나만 보는 것보다 데이터가 요청부터 처리, 저장, 연계까지 어떻게 흐르는지 따라가면서 병목이나 실패 지점을 찾는 데 강점이 있습니다. 실무에서도 Citus 조회 성능, Livy 세션 병목, RabbitMQ 기반 비동기 처리처럼 전체 처리 흐름을 보고 구조를 개선한 경험이 있습니다.",
+    "followUps": []
+  },
+  {
+    "category": "프로젝트",
+    "question": "가장 자신 있는 프로젝트 하나를 소개해주세요.",
+    "answer": "신한은행 연계 중소기업 재무자료 전송 프로젝트가 가장 설명하기 좋은 프로젝트입니다. 기업 재무자료를 조회하고 가공해 내부 연계 흐름으로 전달하는 백엔드 기능을 개발했고, 기존에는 전처리와 전송이 순차적으로 묶여 있어 작업 대기가 길었습니다. 이를 RabbitMQ 기반으로 분리하고 Worker를 확장해 동시에 처리할 수 있는 작업 수를 1건에서 6건으로 늘렸습니다. 이 과정에서 API, 대용량 조회, 비동기 처리, 권한, 실패 재처리까지 전체 흐름을 경험했습니다.",
+    "followUps": []
+  },
+  {
+    "category": "경력",
+    "question": "이전 회사를 퇴사한 이유는 무엇인가요?",
+    "answer": "퇴사 당시에는 오래 해온 태권도 쪽에서 지도자로 일할 가능성을 진지하게 고민했습니다. 그래서 퇴사 후 실제로 관련 준비를 했지만 잔부상이 반복됐고 장기적으로 어떤 일을 계속할 수 있을지 다시 생각하게 됐습니다. 그 과정에서 제가 실무에서 가장 몰입했던 일이 개발 과정에서 문제를 찾고 개선하는 일이었다는 점을 확인했고, 다시 개발자로 방향을 정했습니다.",
+    "followUps": []
+  },
+  {
+    "category": "경력",
+    "question": "퇴사 후 공백기 동안 무엇을 하셨나요?",
+    "answer": "처음에는 태권도 지도자 준비를 했고 이후 개발자로 복귀하기로 결정한 뒤 Java와 Spring Boot 기반 개인 프로젝트를 이어왔습니다. RabbitMQ를 이용한 인증 오류 자동화 시스템을 만들며 실패 재처리와 멱등성 같은 부분을 다시 공부했고, 이후 MCP와 RAG 프로젝트까지 진행하면서 개발 범위를 넓혔습니다.",
+    "followUps": []
+  },
+  {
+    "category": "경력",
+    "question": "다른 진로를 준비하다 다시 개발자로 돌아온 이유는 무엇인가요?",
+    "answer": "장기적으로 계속할 일을 다시 고민하면서 이전 실무 경험을 돌아봤고, 개발하면서 성능 문제나 처리 구조를 개선할 때 가장 성취감을 느꼈다는 점이 컸습니다. 복귀를 결정한 뒤에는 말로만 방향을 바꾼 것이 아니라 Java/Spring 개인 프로젝트를 계속 진행하면서 실제 개발을 이어왔습니다.",
+    "followUps": []
+  },
+  {
+    "category": "경력",
+    "question": "개발 공백이 있는데 실무 적응에 문제없다고 생각하나요?",
+    "answer": "초기에는 회사의 코드베이스와 업무 도메인을 다시 익히는 시간이 필요하다고 생각합니다. 다만 복귀를 결정한 뒤 Java와 Spring Boot를 계속 사용했고 RabbitMQ, PostgreSQL, Docker, RAG 같은 프로젝트를 직접 구현했습니다. 최근에는 과제 형태의 서비스도 구현하면서 API와 DB, 동시성 문제를 다시 다뤘기 때문에 기술적으로는 빠르게 적응할 수 있다고 생각합니다.",
+    "followUps": []
+  },
+  {
+    "category": "경력",
+    "question": "최근 개발 감각을 유지하기 위해 무엇을 했나요?",
+    "answer": "개념 공부만 하기보다 개인 프로젝트를 만들어 직접 구현했습니다. 인증 오류 이벤트를 수집하고 RabbitMQ로 분석·재처리하는 시스템을 만들었고, 이후 Spring 기반 MCP 서버와 개인 CS 문서를 검색하는 RAG 서비스도 구현했습니다. 최근 과제에서는 Spring Boot와 Next.js로 게시글·댓글·좋아요 기능을 만들면서 트랜잭션과 동시성 제어도 다시 다뤘습니다.",
+    "followUps": []
+  },
+  {
+    "category": "회사",
+    "question": "플로우가 어떤 서비스인지 설명해주세요.",
+    "answer": "플로우는 기업이 프로젝트와 업무, 메신저 같은 협업 기능을 한 곳에서 사용할 수 있도록 제공하는 협업 솔루션으로 이해하고 있습니다. 엔터프라이즈 고객에게는 단순 SaaS 제공뿐 아니라 고객사의 보안 정책과 인프라 환경에 맞춘 구축과 조직도, SSO 같은 내부 시스템 연동도 제공하는 것으로 알고 있습니다.",
+    "followUps": []
+  },
+  {
+    "category": "지원동기",
+    "question": "플로우에 지원한 이유는 무엇인가요?",
+    "answer": "제가 이전 회사에서 주로 했던 일이 데이터를 조회하고 가공해 다른 시스템과 연결하고, 그 과정에서 발생하는 지연이나 오류를 개선하는 일이었습니다. 플로우의 엔터프라이즈 개발 업무도 신규 기능 개발뿐 아니라 API 개발, 고객사 내부 시스템 연동, 운영 이슈 대응이 포함되어 있어 제가 해온 경험을 직접 활용할 수 있다고 생각했습니다. 구축 후 실제 기업 고객이 계속 사용하는 서비스를 운영하고 개선한다는 점도 제가 하고 싶은 업무와 맞았습니다.",
+    "followUps": [
+      {
+        "question": "플로우에 입사하면 가장 먼저 배우고 싶은 것은 무엇인가요?",
+        "answer": "엔터프라이즈 고객의 실제 시스템 연동 구조를 먼저 이해하고 싶습니다. 조직도나 인증, 고객사 업무 시스템과 어떤 방식으로 데이터를 주고받고 어떤 운영 이슈가 자주 발생하는지 알아야 제 경험을 어디에 활용할 수 있을지 빠르게 판단할 수 있다고 생각합니다."
+      }
+    ]
+  },
+  {
+    "category": "직무",
+    "question": "엔터프라이즈 부문 개발자는 어떤 일을 한다고 이해하고 있나요?",
+    "answer": "플로우 시스템의 신규 기능과 기존 기능을 개발·운영하고, 표준 API나 고객사 내부 시스템 연동 기능을 개발하는 역할이라고 이해하고 있습니다. 또 실제 고객사가 플로우를 운영하면서 발생하는 기술·개발 이슈를 지원하는 역할도 포함된다고 봤습니다. 그래서 단순 API 구현뿐 아니라 고객 환경과 데이터 흐름을 이해하고 운영까지 볼 수 있어야 하는 직무라고 생각합니다.",
+    "followUps": []
+  },
+  {
+    "category": "회사",
+    "question": "협업툴 시장에서 플로우의 특징은 무엇이라고 생각하나요?",
+    "answer": "제가 본 플로우의 특징은 협업 기능과 엔터프라이즈 구축·연동을 함께 가져간다는 점입니다. 프로젝트와 업무, 메신저 같은 기능을 하나의 서비스에서 제공하면서 기업 고객에게는 조직도, SSO, 보안 솔루션 같은 내부 환경과 연동할 수 있다는 점이 강점이라고 생각합니다.",
+    "followUps": []
+  },
+  {
+    "category": "지원동기",
+    "question": "입사한다면 어떤 기능을 개발해보고 싶나요?",
+    "answer": "고객사의 내부 시스템과 플로우 사이에서 발생하는 연동 작업을 관리하는 기능을 개발해보고 싶습니다. 예를 들어 조직 정보나 다른 업무 데이터를 연동할 때 어느 단계에서 실패했는지와 원인을 확인하고, 전체 작업이 아니라 실패한 부분만 다시 실행할 수 있도록 하는 기능입니다. 이전 실무에서 비슷하게 처리 단계를 나누고 실패 범위를 좁혀 재처리한 경험을 활용할 수 있다고 생각합니다.",
+    "followUps": [
+      {
+        "question": "플로우를 살펴보면서 개선하고 싶은 부분이 있었나요?",
+        "answer": "공개된 서비스만으로 실제 엔터프라이즈 관리자 기능까지 확인하기 어려워 현재 부족한 기능이라고 단정하고 싶지는 않습니다. 다만 고객사 내부 시스템 연동이 많다면 운영자가 연동 상태와 실패 원인을 쉽게 확인하고 필요한 작업만 다시 처리할 수 있는 기능이 중요하다고 생각했습니다."
+      }
+    ]
+  },
+  {
+    "category": "지원동기",
+    "question": "자소서에서 제안한 외부 시스템 연동 오류 확인 및 부분 재처리 기능을 조금 더 설명해주세요.",
+    "answer": "연동 작업마다 고유한 작업 ID를 만들고 데이터 조회, 검증, 반영처럼 처리 단계를 나눈 뒤 각 단계의 상태와 실패 원인을 기록하는 방식으로 생각했습니다. 운영자는 어느 단계에서 실패했는지 확인하고 실패 지점부터 다시 처리할 수 있습니다. 재처리 과정에서 같은 데이터가 두 번 반영되지 않도록 작업 ID나 업무상 유일한 값을 기준으로 중복 처리를 막는 것도 필요하다고 생각합니다.",
+    "followUps": []
+  },
+  {
+    "category": "프로젝트-신한연계",
+    "question": "신한은행 연계 프로젝트가 어떤 프로젝트였나요?",
+    "answer": "기업 재무자료를 조회하고 가공해 신한은행 연계 흐름으로 전달하기 위한 백엔드 프로젝트였습니다. 저는 재무자료 조회·가공 API, RabbitMQ 기반 비동기 전처리와 전송 처리, 권한 확인, S3 저장·다운로드 관련 기능을 담당했습니다.",
+    "followUps": []
+  },
+  {
+    "category": "프로젝트-신한연계",
+    "question": "이 프로젝트에서 본인이 직접 담당한 범위는 어디까지인가요?",
+    "answer": "Java와 Spring Boot 기반 REST API 개발, Impala를 이용한 재무자료 조회·가공 로직, RabbitMQ 기반 전처리·전송 작업 분리와 Worker 처리, OpenFGA 기반 권한 확인, S3 저장·다운로드 API 등을 담당했습니다. 신한은행 담당자와 직접 협업한 것은 아니고 내부 연계 팀으로 전달되는 백엔드 기능을 개발했습니다.",
+    "followUps": []
+  },
+  {
+    "category": "프로젝트-신한연계",
+    "question": "기존 구조에는 어떤 문제가 있었나요?",
+    "answer": "재무자료 조회부터 전처리, 파일 생성과 전송까지 하나의 흐름에 묶여 순차적으로 처리됐습니다. 앞 작업이 오래 걸리면 뒤 작업들이 모두 대기했고, 중간 단계가 실패해도 실패 범위를 분리하기 어려워 전체 흐름을 다시 확인해야 하는 문제가 있었습니다.",
+    "followUps": []
+  },
+  {
+    "category": "프로젝트-신한연계",
+    "question": "전처리와 전송 작업을 왜 분리했나요?",
+    "answer": "두 작업의 처리 시간과 실패 원인이 달랐기 때문입니다. 한 단계의 지연이나 실패가 전체 작업을 막지 않도록 Queue를 기준으로 처리 단계를 분리했고, 실패한 단계의 범위를 따로 확인하고 다시 처리할 수 있도록 했습니다.",
+    "followUps": []
+  },
+  {
+    "category": "프로젝트-신한연계",
+    "question": "RabbitMQ를 사용한 이유는 무엇인가요?",
+    "answer": "요청이 들어올 때 모든 작업을 바로 동기적으로 끝내기보다 작업을 Queue에 저장하고 Worker들이 나눠 처리하는 구조가 필요했습니다. RabbitMQ는 작업 생산 측과 처리 측을 분리하고 여러 Consumer가 작업을 분산 처리하는 작업 큐 형태에 적합해서 사용했습니다.",
+    "followUps": []
+  },
+  {
+    "category": "프로젝트-신한연계",
+    "question": "Kafka가 아니라 RabbitMQ를 사용한 이유는 무엇인가요?",
+    "answer": "당시 목적은 대규모 이벤트 스트림을 장기간 보관하고 여러 Consumer가 각각 재생하는 것보다 들어온 작업을 Queue에 넣고 Worker에게 분배해 처리하는 것이었습니다. 그래서 작업 큐와 메시지 전달 중심의 RabbitMQ가 요구사항에 더 잘 맞았습니다.",
+    "followUps": []
+  },
+  {
+    "category": "프로젝트-신한연계",
+    "question": "Master/Worker 구조를 설명해주세요.",
+    "answer": "Master 쪽에서 처리할 작업을 나누고 RabbitMQ에 넣으면 여러 Worker가 Queue에서 작업을 가져가 실제 데이터 조회와 가공, 저장 같은 처리를 수행하는 구조입니다. 작업 생성과 실제 실행을 분리해서 Worker 수를 조절하며 병렬 처리할 수 있도록 했습니다.",
+    "followUps": []
+  },
+  {
+    "category": "프로젝트-신한연계",
+    "question": "워커를 1개에서 6개로 늘리면 왜 처리량이 증가하나요?",
+    "answer": "서로 독립적으로 처리할 수 있는 작업을 여러 Worker가 동시에 수행할 수 있기 때문입니다. 기존에는 한 작업이 끝나야 다음 작업을 처리했지만 Worker를 늘린 뒤에는 여러 작업을 병렬로 진행할 수 있었습니다.",
+    "followUps": []
+  },
+  {
+    "category": "프로젝트-신한연계",
+    "question": "워커를 계속 늘리면 계속 빨라지나요?",
+    "answer": "아닙니다. CPU와 메모리뿐 아니라 DB, Impala, 네트워크, 외부 시스템 같은 다른 자원이 병목이 될 수 있습니다. Worker를 지나치게 늘리면 오히려 DB Connection이나 외부 시스템 부하, Context Switching이 증가할 수 있어서 실제 병목과 자원 한계를 보고 조절해야 합니다.",
+    "followUps": []
+  },
+  {
+    "category": "프로젝트-신한연계",
+    "question": "작업이 실패하면 어떻게 처리했나요?",
+    "answer": "처리 단계를 분리하고 작업 상태를 기록해서 어느 범위에서 실패했는지 확인할 수 있도록 했습니다. 전체 작업을 처음부터 다시 수행하기보다 실패한 범위를 기준으로 필요한 부분만 다시 처리하는 방식으로 운영했습니다.",
+    "followUps": []
+  },
+  {
+    "category": "프로젝트-신한연계",
+    "question": "재처리할 때 중복 처리는 어떻게 방지했나요?",
+    "answer": "당시 프로젝트에서는 최근 개인 프로젝트처럼 별도의 멱등성 키 체계를 정교하게 설계한 것은 아니었습니다. 대신 작업 단계를 나누고 처리 상태와 실패 범위를 기록해 이미 완료된 전체 작업을 다시 수행하지 않도록 했습니다. 지금 다시 설계한다면 작업 ID나 업무상 유일 키를 두고 성공 여부를 확인하는 멱등성 제어를 추가하겠습니다.",
+    "followUps": []
+  },
+  {
+    "category": "프로젝트-신한연계",
+    "question": "신한은행과 직접 협업한 프로젝트인가요?",
+    "answer": "신한은행 연계 프로젝트였지만 제가 신한은행 담당자와 직접 협업한 것은 아닙니다. 저는 기업 재무자료를 조회·가공·저장한 뒤 내부 연계 팀에 전달하는 백엔드 기능을 담당했고, 실제 외부 기관 연계는 내부의 다른 팀을 통해 진행됐습니다.",
+    "followUps": []
+  },
+  {
+    "category": "프로젝트-신한연계",
+    "question": "조회 속도 2배 개선은 무엇을 바꾼 결과이고 어떻게 측정했나요?",
+    "answer": "Impala 기반 재무자료 조회·가공 API에서 조회 조건과 데이터 처리 방식을 개선했고 주요 조회 작업의 개선 전후 수행 시간을 비교해 약 2배 수준의 개선을 확인했습니다. 면접에서는 제가 실제로 확인했던 주요 API 기준의 수치라는 점까지만 정확하게 설명하고 과도한 벤치마크 조건을 만들어내지는 않겠습니다.",
+    "followUps": []
+  },
+  {
+    "category": "프로젝트-정밀의료",
+    "question": "정밀의료 플랫폼은 어떤 서비스였나요?",
+    "answer": "여러 의료기관의 임상 데이터를 통합 조회하고 분석할 수 있도록 하는 데이터 플랫폼이었습니다. 일반적인 임상 데이터 조회는 Citus 기반으로 처리하고, 대규모 조인이나 가공이 필요한 분석은 Spark와 Livy를 이용해 처리했습니다.",
+    "followUps": []
+  },
+  {
+    "category": "프로젝트-정밀의료",
+    "question": "이 프로젝트에서 본인이 맡은 핵심 역할은 무엇인가요?",
+    "answer": "임상 데이터 조회·가공 REST API 개발, Citus 기반 조회 구조 적용, Spark·Livy 분석 작업 연동과 세션 관리 개선, 동적 파라미터 기반 데이터 추상화, OpenFGA 기반 데이터 접근 권한 API 등을 담당했습니다.",
+    "followUps": []
+  },
+  {
+    "category": "프로젝트-정밀의료",
+    "question": "Citus를 사용한 이유는 무엇인가요?",
+    "answer": "임상 데이터 규모가 커지면서 단일 PostgreSQL 인스턴스에서 모든 조회 부하를 처리하기보다 데이터를 여러 Worker에 분산하고 병렬로 조회할 필요가 있었습니다. PostgreSQL 기반 기술을 유지하면서 분산 처리할 수 있다는 점 때문에 Citus를 사용했습니다.",
+    "followUps": []
+  },
+  {
+    "category": "프로젝트-정밀의료",
+    "question": "일반 PostgreSQL과 Citus의 차이는 무엇인가요?",
+    "answer": "PostgreSQL은 기본적으로 하나의 DB 인스턴스에서 데이터를 처리하지만 Citus는 PostgreSQL 확장 구조로 데이터를 Shard로 나누고 여러 Worker Node에 분산할 수 있습니다. Coordinator가 들어온 Query를 적절한 Worker로 전달하고 결과를 모으는 구조로 이해하고 있습니다.",
+    "followUps": []
+  },
+  {
+    "category": "프로젝트-정밀의료",
+    "question": "Citus와 Spark는 각각 어떤 작업에 사용했나요?",
+    "answer": "Citus는 사용자가 조건을 주고 임상 데이터를 빠르게 조회하는 일반 조회 API에 주로 사용했습니다. 반면 대규모 조인이나 복잡한 데이터 가공처럼 처리 시간이 길고 자원을 많이 사용하는 분석 작업은 Spark로 분산 처리했습니다.",
+    "followUps": []
+  },
+  {
+    "category": "프로젝트-정밀의료",
+    "question": "Spark와 Livy의 관계를 설명해주세요.",
+    "answer": "Spark가 실제 대용량 데이터를 분산 처리하는 엔진이고 Livy는 외부 애플리케이션이 REST 방식으로 Spark Session과 Job을 생성하고 상태를 관리할 수 있도록 중간에서 연결해주는 서버입니다. Spring 애플리케이션에서는 Livy를 통해 Spark 작업을 요청하고 결과 상태를 관리했습니다.",
+    "followUps": []
+  },
+  {
+    "category": "프로젝트-정밀의료",
+    "question": "기존 단일 Livy Session 구조에는 어떤 문제가 있었나요?",
+    "answer": "여러 사용자의 분석 요청이 하나의 Session과 처리 흐름에 집중되면서 앞선 작업이 길어질 경우 뒤의 사용자 작업도 같이 대기하는 문제가 있었습니다. 사용자 수가 늘수록 한 작업의 지연이 다른 요청까지 영향을 주는 구조였습니다.",
+    "followUps": []
+  },
+  {
+    "category": "프로젝트-정밀의료",
+    "question": "사용자별 Session으로 분리하면 왜 처리 시간이 줄어드나요?",
+    "answer": "사용자마다 Session과 작업 상태를 분리하면 한 사용자의 긴 작업 때문에 다른 사용자의 작업이 같은 Queue에서 계속 기다리지 않고 각각 실행될 수 있습니다. 그 결과 사용자 간 작업을 병렬로 처리할 수 있어 대기 시간이 줄었습니다.",
+    "followUps": []
+  },
+  {
+    "category": "프로젝트-정밀의료",
+    "question": "Session을 계속 늘리면 문제가 없나요?",
+    "answer": "문제가 생길 수 있습니다. Session마다 Spark 자원을 사용하기 때문에 지나치게 많이 만들면 CPU와 메모리 같은 Cluster Resource 경쟁이 커질 수 있습니다. 그래서 동시 사용자 수와 실제 자원 상황을 보고 Session 수와 Resource 할당을 관리해야 합니다.",
+    "followUps": []
+  },
+  {
+    "category": "프로젝트-정밀의료",
+    "question": "분석 처리시간 50% 단축은 어떻게 측정했나요?",
+    "answer": "사용자별 Session 분리 전후에 동일 유형의 대표 분석 작업 처리 시간을 비교했고, 기존 대비 약 절반 수준으로 줄어든 것을 확인했습니다. 면접에서는 실제 프로젝트에서 확인한 대표 작업 기준의 수치로 설명하겠습니다.",
+    "followUps": []
+  },
+  {
+    "category": "프로젝트-정밀의료",
+    "question": "데이터 처리 담당자와 본인이 각각 어떤 부분을 담당했나요?",
+    "answer": "데이터 처리 담당자와 함께 분석 지연 원인을 확인했고, 저는 Spring 애플리케이션에서 Livy Session과 작업 상태를 사용자별로 관리하도록 연동 구조와 API 흐름을 개선하는 부분을 맡았습니다. Spark 자체의 데이터 처리 로직이나 Cluster 운영 전체를 제가 단독으로 담당한 것은 아닙니다.",
+    "followUps": []
+  },
+  {
+    "category": "프로젝트-검색",
+    "question": "MongoDB 대신 Elasticsearch를 적용한 이유는 무엇인가요?",
+    "answer": "SNS 데이터는 키워드와 기간, 채널 같은 조건으로 검색하는 요청이 많았습니다. MongoDB 중심의 단순 조건 검색보다 텍스트를 역색인해 검색하는 Elasticsearch가 키워드 검색과 다양한 필터, 집계에 더 적합해서 검색 기능을 Elasticsearch 기반으로 전환했습니다.",
+    "followUps": []
+  },
+  {
+    "category": "프로젝트-검색",
+    "question": "Elasticsearch의 역색인이 무엇인가요?",
+    "answer": "문서마다 어떤 단어가 있는지를 매번 찾는 대신 단어를 기준으로 그 단어가 들어 있는 문서 목록을 미리 만들어두는 구조입니다. 예를 들어 'spring'이라는 단어가 어느 문서에 있는지 목록을 가지고 있기 때문에 전체 문서를 순차적으로 확인하지 않고 관련 문서를 빠르게 찾을 수 있습니다.",
+    "followUps": []
+  },
+  {
+    "category": "프로젝트-검색",
+    "question": "검색 속도 2배 개선은 무엇과 비교한 결과인가요?",
+    "answer": "기존 MongoDB 중심의 검색 구조와 Elasticsearch 기반으로 전환한 이후의 주요 검색 API 응답 시간을 비교한 결과입니다. 키워드와 조건 검색이 많은 대표 조회를 기준으로 약 2배 정도 개선된 것을 확인했습니다.",
+    "followUps": []
+  },
+  {
+    "category": "개인프로젝트",
+    "question": "최근 만든 인증 오류 자동화 프로젝트를 설명해주세요.",
+    "answer": "인증 오류 이벤트를 수집하고 비동기로 분석한 뒤 실패한 작업을 별도로 관리하고 재처리할 수 있도록 만든 Spring Boot 프로젝트입니다. PostgreSQL과 RabbitMQ를 사용했고 메시지 발행 안정성을 위해 Outbox 구조를 적용하고, 중복 처리 방지를 위한 멱등성, 동시성 제어, DLQ Ledger 같은 부분을 직접 구현했습니다.",
+    "followUps": [
+      {
+        "question": "MCP는 무엇이고 프로젝트에 왜 적용했나요?",
+        "answer": "MCP는 AI 모델이 외부 도구나 데이터에 표준화된 방식으로 접근할 수 있도록 연결하는 프로토콜로 이해하고 있습니다. Spring 기반 MCP Server를 만들어 백엔드 기능을 Tool 형태로 노출하고 Claude Desktop에서 호출해보면서 AI Agent와 기존 서비스의 연결 방식을 학습했습니다."
+      },
+      {
+        "question": "RAG 프로젝트의 전체 처리 흐름을 설명해주세요.",
+        "answer": "Markdown 문서를 Chunking한 뒤 Embedding을 생성해 pgvector에 저장하고, 질문이 들어오면 Dense와 Sparse 검색 결과를 RRF로 결합합니다. 이후 필요하면 Reranker로 순서를 조정하고 관련성이 높은 문맥만 LLM에 전달해 답변과 출처를 반환하도록 구현했습니다."
+      }
+    ]
+  },
+  {
+    "category": "CS-Java",
+    "question": "Java의 GC는 어떻게 동작하나요?",
+    "answer": "GC는 JVM Heap에서 더 이상 사용되지 않는 객체를 자동으로 정리합니다. 단순히 오래된 객체를 지우는 것이 아니라 GC Root에서 객체를 따라갔을 때 더 이상 도달할 수 없는 객체를 수거 대상으로 판단합니다. 객체가 계속 참조되고 있으면 실제로 사용하지 않아도 GC가 제거하지 못해 메모리 누수가 생길 수 있습니다.",
+    "followUps": []
+  },
+  {
+    "category": "CS-Java",
+    "question": "Stack과 Heap의 차이는 무엇인가요?",
+    "answer": "Stack은 Thread마다 독립적으로 존재하고 메서드 호출 정보와 지역 변수, 매개변수 등을 관리합니다. Heap에는 객체와 배열 등이 저장되고 여러 Thread가 공유합니다. 그래서 Heap의 같은 객체를 여러 Thread가 동시에 변경하면 동시성 문제가 발생할 수 있고 Heap은 GC의 주요 관리 대상입니다.",
+    "followUps": []
+  },
+  {
+    "category": "CS-DB",
+    "question": "Index란 무엇이고 왜 조회가 빨라지나요?",
+    "answer": "Index는 데이터를 빠르게 찾기 위해 별도로 만드는 검색 구조입니다. Index가 없으면 많은 Row를 확인하는 Full Table Scan이 발생할 수 있지만 B-Tree 계열 Index를 사용하면 탐색 범위를 줄여 필요한 데이터 위치를 빠르게 찾을 수 있습니다. 대신 저장 공간과 쓰기 비용이 추가됩니다.",
+    "followUps": []
+  },
+  {
+    "category": "CS-DB",
+    "question": "복합 Index에서 컬럼 순서가 중요한 이유는 무엇인가요?",
+    "answer": "복합 Index는 지정된 컬럼 순서대로 정렬되기 때문에 선두 컬럼을 어떻게 사용하는지가 중요합니다. 예를 들어 (A, B) Index는 A 조건이나 A와 B를 함께 사용하는 조건에는 활용하기 좋지만 B만 사용하는 조건에는 효율적으로 활용하기 어려울 수 있습니다.",
+    "followUps": []
+  },
+  {
+    "category": "CS-DB",
+    "question": "Query가 느리면 무엇부터 확인하나요?",
+    "answer": "먼저 실제 실행되는 SQL과 실행 계획을 확인합니다. Full Scan 여부, 사용 중인 Index, 예상 조회 Row 수, JOIN 순서 등을 보고 원인을 좁힌 뒤 조건이나 JOIN, Index를 개선하고 다시 측정합니다. 느리다고 바로 Index부터 추가하기보다 실행 계획을 통해 원인을 확인하는 것이 우선입니다.",
+    "followUps": []
+  },
+  {
+    "category": "CS-DB",
+    "question": "데이터베이스 정규화란 무엇인가요?",
+    "answer": "정규화는 데이터 중복을 줄이고 삽입, 수정, 삭제 과정에서 발생할 수 있는 이상 현상을 줄이기 위해 데이터를 적절한 관계로 분리하는 과정입니다. 데이터 정합성과 유지보수성을 높이는 것이 목적입니다.",
+    "followUps": []
+  },
+  {
+    "category": "CS-DB",
+    "question": "Transaction과 ACID를 설명해주세요.",
+    "answer": "Transaction은 여러 DB 작업을 하나의 논리적인 작업 단위로 묶어 모두 성공하거나 실패하도록 처리하는 것입니다. ACID는 Atomicity, Consistency, Isolation, Durability를 의미하며 각각 원자성, 일관성, 격리성, 지속성을 뜻합니다.",
+    "followUps": []
+  },
+  {
+    "category": "CS-DB",
+    "question": "Isolation Level을 설명해주세요.",
+    "answer": "여러 Transaction이 동시에 실행될 때 어느 정도까지 서로의 영향을 차단할지 결정하는 수준입니다. 대표적으로 READ UNCOMMITTED, READ COMMITTED, REPEATABLE READ, SERIALIZABLE이 있고 격리를 강하게 할수록 정합성은 높아지지만 동시 처리 성능은 낮아질 수 있습니다.",
+    "followUps": []
+  },
+  {
+    "category": "CS-DB",
+    "question": "비관적 Lock과 낙관적 Lock의 차이는 무엇인가요?",
+    "answer": "비관적 Lock은 충돌 가능성이 높다고 보고 먼저 Lock을 획득한 뒤 작업하는 방식입니다. 낙관적 Lock은 Lock을 먼저 잡기보다 Version 같은 값을 이용해 수정 시점에 다른 작업과 충돌했는지 확인합니다. 충돌이 잦으면 비관적 Lock이 단순할 수 있고 충돌이 드물고 재시도가 가능하면 낙관적 Lock이 동시성 측면에서 유리할 수 있습니다.",
+    "followUps": []
+  },
+  {
+    "category": "CS-Spring",
+    "question": "@Transactional은 어떻게 동작하나요?",
+    "answer": "Spring은 일반적으로 Proxy를 이용해 @Transactional을 처리합니다. 외부 호출이 Proxy를 통과하면 실제 Service 메서드 실행 전에 Transaction을 시작하고 정상 종료되면 Commit하며 예외가 발생하면 정책에 따라 Rollback합니다.",
+    "followUps": []
+  },
+  {
+    "category": "CS-Spring",
+    "question": "@Transactional(readOnly = true)를 사용하는 이유는 무엇인가요?",
+    "answer": "읽기 전용 Transaction이라는 의도를 명확히 하고 JPA/Hibernate 환경에서는 Flush나 Dirty Checking 관련 최적화를 적용할 여지가 있습니다. 다만 readOnly가 모든 환경에서 쓰기를 물리적으로 막는 기능이라고 보면 안 되고 실제 동작은 DB와 ORM 설정에 따라 달라질 수 있습니다.",
+    "followUps": []
+  },
+  {
+    "category": "CS-OS",
+    "question": "Blocking과 Non-Blocking의 차이는 무엇인가요?",
+    "answer": "Blocking은 호출한 Thread가 작업 완료를 기다리는 동안 다른 일을 하지 못하고 대기하는 방식이고, Non-Blocking은 작업이 바로 끝나지 않아도 Thread를 계속 묶어두지 않는 방식입니다. 일반적인 Spring MVC와 JDBC 조합은 DB 결과를 기다리는 동안 요청 Thread가 대기하는 Blocking 방식입니다.",
+    "followUps": []
+  },
+  {
+    "category": "CS-OS",
+    "question": "Synchronous와 Asynchronous는 Blocking과 어떤 차이가 있나요?",
+    "answer": "Blocking과 Non-Blocking은 호출한 Thread가 기다리는지에 대한 개념이고, Sync와 Async는 작업 완료 결과를 어떤 흐름에서 처리하는지에 대한 개념입니다. 그래서 Blocking과 Sync를 같은 의미로 보면 안 됩니다.",
+    "followUps": []
+  },
+  {
+    "category": "CS-OS",
+    "question": "Mutex와 Semaphore의 차이는 무엇인가요?",
+    "answer": "Mutex는 일반적으로 한 번에 하나의 Thread만 Critical Section에 접근하도록 하는 상호 배제 방식이고 Semaphore는 Permit 수를 기준으로 정해진 개수의 Thread까지 동시에 접근하도록 제한하는 방식입니다.",
+    "followUps": []
+  },
+  {
+    "category": "CS-OS",
+    "question": "Deadlock이 발생하는 네 가지 조건은 무엇인가요?",
+    "answer": "상호 배제, 점유와 대기, 비선점, 순환 대기입니다. 이 조건들이 동시에 만족될 때 Deadlock이 발생할 수 있습니다. 실제로는 Lock 획득 순서를 일정하게 하거나 Transaction을 짧게 유지하는 방식으로 가능성을 줄일 수 있습니다.",
+    "followUps": []
+  },
+  {
+    "category": "CS-Web",
+    "question": "Cookie와 Session의 차이는 무엇인가요?",
+    "answer": "Cookie는 브라우저가 값을 저장하고 이후 요청에 전달하는 방법이고 Session은 서버가 사용자의 상태를 관리하는 방식입니다. 일반적인 Session 인증에서는 서버가 Session을 만들고 Session ID를 Cookie에 담아 클라이언트가 이후 요청마다 전달합니다.",
+    "followUps": []
+  },
+  {
+    "category": "CS-Web",
+    "question": "JWT와 Session 방식의 차이는 무엇인가요?",
+    "answer": "Session 방식은 로그인 상태를 주로 서버 저장소에서 관리하고 클라이언트는 Session ID를 전달합니다. JWT 방식은 클라이언트가 Token을 보관하고 요청마다 전달하면 서버가 서명을 검증해 위변조 여부를 확인합니다. JWT는 발급 후 즉시 폐기가 어렵다는 점도 고려해야 합니다.",
+    "followUps": []
+  },
+  {
+    "category": "CS-Web",
+    "question": "OAuth란 무엇인가요?",
+    "answer": "OAuth는 사용자의 비밀번호를 제3자 애플리케이션에 직접 제공하지 않고 제한된 권한을 위임하기 위한 Authorization 표준입니다. JWT는 Token 형식이므로 OAuth와 같은 개념이 아니고 OAuth Access Token이 반드시 JWT일 필요도 없습니다.",
+    "followUps": []
+  },
+  {
+    "category": "CS-Web",
+    "question": "인증과 인가의 차이는 무엇인가요?",
+    "answer": "인증은 사용자가 누구인지 확인하는 과정이고 인가는 인증된 사용자가 특정 리소스나 기능에 접근할 권한이 있는지 확인하는 과정입니다. 제 프로젝트에서는 Keycloak을 인증, OpenFGA를 데이터 접근 권한 확인에 사용했습니다.",
+    "followUps": []
+  },
+  {
+    "category": "CS-Network",
+    "question": "Reverse Proxy란 무엇인가요?",
+    "answer": "Reverse Proxy는 애플리케이션 서버 앞에서 클라이언트 요청을 대신 받아 내부 서버로 전달하는 구성입니다. HTTPS 종료, Load Balancing, 캐싱, 내부 서버 은닉, 공통 라우팅 등에 활용할 수 있고 Nginx가 대표적인 예입니다.",
+    "followUps": []
+  },
+  {
+    "category": "CS-AWS",
+    "question": "AWS VPC가 무엇인가요?",
+    "answer": "VPC는 AWS에서 사용자가 논리적으로 격리된 가상 네트워크를 구성하는 공간입니다. IP 대역을 정하고 Subnet과 Route Table, Internet Gateway, Security Group 등을 구성해 애플리케이션과 DB 같은 자원의 네트워크를 설계할 수 있습니다.",
+    "followUps": [
+      {
+        "question": "EC2와 S3는 각각 어떤 서비스인가요?",
+        "answer": "EC2는 애플리케이션이나 서버 프로세스를 실행할 수 있는 가상 컴퓨팅 인스턴스이고, S3는 파일이나 객체 데이터를 저장하는 Object Storage입니다."
+      }
+    ]
+  },
+  {
+    "category": "CS-AWS",
+    "question": "Public Subnet과 Private Subnet의 차이는 무엇인가요?",
+    "answer": "Public Subnet은 Route Table을 통해 Internet Gateway로 직접 통신할 수 있는 Subnet이고 Private Subnet은 인터넷으로 직접 나가는 경로를 두지 않는 Subnet입니다. Private Subnet의 서버가 외부 인터넷으로 요청해야 한다면 NAT Gateway 같은 구성을 사용할 수 있습니다.",
+    "followUps": []
+  },
+  {
+    "category": "CS-JavaScript",
+    "question": "JavaScript의 var, let, const 차이는 무엇인가요?",
+    "answer": "var는 Function Scope이고 재선언과 재할당이 가능하며, let과 const는 Block Scope입니다. let은 재할당이 가능하고 const는 재할당이 불가능합니다. const 객체도 참조 자체의 재할당을 막는 것이지 내부 Property 변경까지 자동으로 막는 것은 아닙니다.",
+    "followUps": []
+  },
+  {
+    "category": "CS-JavaScript",
+    "question": "Promise와 async/await을 설명해주세요.",
+    "answer": "Promise는 비동기 작업의 성공이나 실패 결과를 표현하는 객체입니다. async/await은 Promise 기반 코드를 동기 코드처럼 읽기 쉽게 작성할 수 있게 해주는 문법입니다. await은 해당 async 함수의 진행은 멈추지만 JavaScript 전체 Thread를 Blocking하는 것은 아닙니다.",
+    "followUps": []
+  },
+  {
+    "category": "CS-OS",
+    "question": "Process와 Thread의 차이는 무엇인가요?",
+    "answer": "Process는 실행 중인 프로그램과 그 자원을 관리하는 단위이고, Thread는 Process 안에서 실제 코드를 실행하는 흐름입니다. Process들은 기본적으로 독립된 메모리 공간을 가지지만 같은 Process의 Thread들은 Heap 같은 자원을 공유하고 각자 Stack을 가집니다.",
+    "followUps": [
+      {
+        "question": "Spring Boot 서버에서는 요청마다 Process가 생성되나요?",
+        "answer": "아닙니다. 일반적으로 하나의 JVM Process 안에서 Tomcat Thread Pool의 여러 Thread가 HTTP 요청을 나눠 처리합니다."
+      }
+    ]
+  },
+  {
+    "category": "CS-Network",
+    "question": "TCP와 UDP의 차이는 무엇이고 TCP 3-Way Handshake는 왜 하나요?",
+    "answer": "TCP는 연결을 맺은 뒤 순서와 전송 여부를 확인해 신뢰성 있게 데이터를 전달하는 방식이고, UDP는 연결 설정 없이 Datagram을 보내기 때문에 상대적으로 단순하고 빠르지만 전송과 순서를 보장하지 않습니다. TCP의 3-Way Handshake는 통신 전에 양쪽이 송수신 가능한 상태인지 확인하고 초기 Sequence Number를 맞추기 위한 과정입니다.",
+    "followUps": [
+      {
+        "question": "3-Way Handshake 순서를 설명해주세요.",
+        "answer": "Client가 SYN을 보내고 Server가 SYN과 ACK로 응답한 뒤 Client가 ACK를 보내면서 연결이 성립됩니다."
+      },
+      {
+        "question": "HTTP는 TCP를 사용하나요?",
+        "answer": "HTTP/1.1과 HTTP/2는 일반적으로 TCP 위에서 동작합니다. HTTP/3는 QUIC을 사용하며 QUIC은 UDP 기반입니다."
+      }
+    ]
+  },
+  {
+    "category": "CS-Web",
+    "question": "HTTP가 Stateless하다는 것은 무엇인가요?",
+    "answer": "각 HTTP 요청을 독립적인 요청으로 처리하고 프로토콜 자체가 이전 요청의 사용자 상태를 기억하지 않는다는 의미입니다. 그래서 로그인 상태처럼 요청 사이에 유지해야 하는 정보가 있다면 Session이나 Token 같은 별도 방법을 사용합니다.",
+    "followUps": [
+      {
+        "question": "Stateless한데 어떻게 로그인 상태를 유지하나요?",
+        "answer": "Session 방식에서는 Session ID를 Cookie 등에 담아 보내고, Token 방식에서는 Access Token 같은 값을 매 요청에 전달해 사용자를 식별합니다."
+      }
+    ]
+  },
+  {
+    "category": "CS-Web",
+    "question": "GET, POST, PUT, PATCH, DELETE의 차이와 멱등성을 설명해주세요.",
+    "answer": "GET은 조회, POST는 생성이나 처리 요청, PUT은 리소스 전체 교체, PATCH는 일부 수정, DELETE는 삭제에 주로 사용합니다. 멱등성은 같은 요청을 여러 번 수행해도 서버의 최종 상태가 같게 유지되는 성질입니다. 일반적으로 GET, PUT, DELETE는 멱등적이고 POST는 보장하지 않으며 PATCH는 구현 방식에 따라 달라질 수 있습니다.",
+    "followUps": [
+      {
+        "question": "DELETE를 두 번 호출했는데 두 번째가 404면 멱등이 아닌가요?",
+        "answer": "아닙니다. 멱등성은 응답이 항상 같다는 뜻이 아니라 여러 번 수행했을 때 서버 자원의 최종 상태가 같다는 의미입니다."
+      },
+      {
+        "question": "POST도 멱등하게 만들 수 있나요?",
+        "answer": "가능합니다. Idempotency Key나 업무상 유일한 요청 식별자를 사용해 이미 처리된 요청인지 확인하고 중복 생성을 막는 방식으로 애플리케이션 수준에서 멱등성을 만들 수 있습니다."
+      }
+    ]
+  },
+  {
+    "category": "CS-Spring",
+    "question": "IoC와 DI는 무엇이고 둘의 관계는 무엇인가요?",
+    "answer": "IoC는 객체 생성과 생명주기, 의존 관계 관리의 제어권을 개발자가 직접 가지는 대신 Spring Container가 관리하는 개념입니다. DI는 객체가 필요한 의존 객체를 직접 생성하지 않고 외부에서 주입받는 방식이고, Spring에서는 IoC를 구현하는 대표적인 방법으로 DI를 사용합니다.",
+    "followUps": [
+      {
+        "question": "왜 생성자 주입을 많이 사용하나요?",
+        "answer": "필요한 의존성이 명확하고 final을 사용할 수 있으며 객체 생성 시점에 필요한 의존성을 보장할 수 있고 테스트하기도 쉽기 때문입니다."
+      }
+    ]
+  },
+  {
+    "category": "CS-Spring",
+    "question": "Spring Bean의 기본 Scope가 Singleton이라는 것은 무슨 의미이고 왜 Stateless하게 만드는 것이 좋나요?",
+    "answer": "기본 Singleton Scope에서는 Spring Container 안에서 같은 Bean 정의에 대해 하나의 인스턴스를 만들어 여러 요청이 공유합니다. 그래서 Bean의 필드에 요청별 변경 상태를 저장하면 여러 Thread가 동시에 접근하면서 값이 섞이거나 Race Condition이 생길 수 있어 가능한 한 요청별 상태를 필드에 보관하지 않는 Stateless 구조로 만드는 것이 안전합니다.",
+    "followUps": [
+      {
+        "question": "Singleton이면 자동으로 Thread-Safe한가요?",
+        "answer": "아닙니다. 하나의 인스턴스를 공유한다는 의미일 뿐이고 공유되는 Mutable State가 있다면 별도의 동시성 제어가 필요할 수 있습니다."
+      }
+    ]
+  },
+  {
+    "category": "CS-Spring",
+    "question": "Spring MVC에서 HTTP 요청이 Controller까지 어떻게 전달되나요?",
+    "answer": "요청이 들어오면 Servlet Container인 Tomcat이 Thread를 할당하고 Filter를 거쳐 DispatcherServlet으로 전달합니다. DispatcherServlet은 HandlerMapping 등을 통해 처리할 Controller를 찾고 필요한 Interceptor를 거쳐 Controller를 호출합니다. 이후 Service와 Repository 등의 처리가 끝나면 결과를 HTTP Response로 반환합니다.",
+    "followUps": [
+      {
+        "question": "DispatcherServlet의 역할은 무엇인가요?",
+        "answer": "Spring MVC의 Front Controller로서 요청을 한 곳에서 받아 적절한 Handler를 찾고 Controller 호출과 응답 반환까지 전체 흐름을 조정합니다."
+      },
+      {
+        "question": "Filter와 Interceptor의 차이는 무엇인가요?",
+        "answer": "Filter는 Servlet 영역에서 DispatcherServlet 앞뒤로 동작하고 Interceptor는 Spring MVC 내부에서 Controller 호출 전후로 동작합니다."
+      }
+    ]
+  },
+  {
+    "category": "CS-Java",
+    "question": "==, equals(), hashCode()의 관계와 HashMap의 기본 동작을 설명해주세요.",
+    "answer": "참조 타입에서 ==는 두 변수가 같은 객체를 가리키는지 비교하고 equals()는 객체가 논리적으로 같은지를 비교하도록 사용할 수 있습니다. HashMap은 Key의 hashCode()로 Bucket 위치를 좁히고 같은 Bucket에 여러 Key가 있으면 equals()로 실제 Key를 구분합니다. 그래서 논리적으로 같은 객체라면 equals()와 hashCode()를 함께 일관되게 재정의해야 합니다.",
+    "followUps": [
+      {
+        "question": "equals()만 재정의하고 hashCode()를 재정의하지 않으면 어떤 문제가 생기나요?",
+        "answer": "논리적으로 같은 객체인데 서로 다른 Hash 위치를 사용할 수 있어서 HashMap이나 HashSet에서 같은 객체로 정상적으로 처리되지 않을 수 있습니다."
+      },
+      {
+        "question": "Hash 충돌이 발생하면 어떻게 하나요?",
+        "answer": "서로 다른 Key가 같은 Bucket에 들어갈 수 있고 이 경우 추가 구조와 equals() 비교를 통해 실제 Key를 구분합니다."
+      }
+    ]
+  },
+  {
+    "category": "운영",
+    "question": "실제 서비스 운영 경험이 있나요?",
+    "answer": "네. 정밀의료 플랫폼과 데이터 분석·시각화 서비스는 개발 후 운영 과정까지 참여했습니다. 운영 중 조회 지연이나 분석 대기, 인증·권한 이슈가 발생하면 요청부터 DB나 분석 엔진까지 처리 흐름을 확인하고 원인을 찾아 개선했습니다.",
+    "followUps": []
+  },
+  {
+    "category": "운영",
+    "question": "운영 중 장애나 성능 저하가 발생하면 어디부터 확인하나요?",
+    "answer": "먼저 장애 범위와 최근 변경 사항을 확인하고 로그와 모니터링 지표를 통해 애플리케이션 문제인지 DB나 외부 시스템 문제인지 범위를 좁힙니다. API가 느리다면 요청 처리 시간, 실제 SQL과 실행 계획, Connection Pool, 외부 API 응답 등을 단계별로 확인하고 원인을 수정한 뒤 다시 측정합니다.",
+    "followUps": [
+      {
+        "question": "서버 API가 갑자기 느려졌다면 무엇을 확인하겠습니까?",
+        "answer": "먼저 특정 API만 느린지 전체 서비스가 느린지 범위를 확인하고 최근 배포와 트래픽 변화를 봅니다. 애플리케이션에서는 요청 처리 시간과 Thread Pool, 외부 API 호출을 확인하고 DB에서는 Slow Query, 실행 계획, Lock 대기, Connection Pool을 확인합니다. 이후 CPU, 메모리, 네트워크 같은 인프라 지표로 범위를 좁히겠습니다."
+      },
+      {
+        "question": "Docker Image와 Container의 차이와 Docker를 사용하는 이유는 무엇인가요?",
+        "answer": "Image는 애플리케이션 실행에 필요한 코드와 라이브러리, 설정을 포함한 실행 템플릿이고 Container는 그 Image를 실제로 실행한 인스턴스입니다. Docker를 사용하면 개발과 운영 환경 차이를 줄이고 동일한 실행 환경을 재현하기 쉽습니다."
+      }
+    ]
+  },
+  {
+    "category": "상황",
+    "question": "구현해본 적 없는 기술이 필요한 업무를 맡으면 어떻게 하겠습니까?",
+    "answer": "먼저 요구사항과 해당 기술이 필요한 이유를 확인하고 공식 문서와 기존 코드, 작은 검증 예제를 통해 핵심 동작부터 확인하겠습니다. 바로 전체 기능을 구현하기보다 위험한 부분을 작은 범위에서 먼저 검증하고 팀에 공유한 뒤 실제 코드에 적용하겠습니다.",
+    "followUps": []
+  },
+  {
+    "category": "상황",
+    "question": "4주 예상 업무를 2주 안에 끝내야 한다면 어떻게 하겠습니까?",
+    "answer": "먼저 4주로 잡은 이유와 2주 안에 반드시 필요한 범위를 다시 확인하겠습니다. 핵심 기능과 이후로 미룰 수 있는 기능을 나누고 초기부터 위험한 부분을 먼저 검증하겠습니다. 병렬로 진행 가능한 작업을 나누고 진행 상황과 위험 요소를 팀에 빠르게 공유하면서 합의한 범위를 안정적으로 완료하겠습니다.",
+    "followUps": [
+      {
+        "question": "일정과 품질이 충돌하면 무엇을 우선하겠습니까?",
+        "answer": "둘 중 하나를 무조건 포기하기보다 반드시 지켜야 하는 품질 기준과 일정 내 제공해야 하는 핵심 범위를 먼저 합의하겠습니다. 데이터 정합성이나 보안처럼 미루기 어려운 부분은 유지하고 부가 기능이나 개선 사항을 후순위로 조정하겠습니다."
+      }
+    ]
+  },
+  {
+    "category": "협업",
+    "question": "협업 과정에서 의견이 달랐던 경험이 있나요?",
+    "answer": "정밀의료 플랫폼에서 다른 팀이 API 사용 편의를 위해 더 많은 데이터를 한 번에 제공하길 원했지만 백엔드에서는 조회 비용과 응답 시간이 커질 수 있는 문제가 있었습니다. 서로의 요구를 그대로 밀기보다 실제 사용 패턴과 성능 영향을 확인하고 필요한 데이터 범위와 응답 구조를 조율했습니다. 이 경험을 통해 기술적으로 맞는 답만 제시하기보다 상대 팀의 사용 목적까지 이해하고 합의하는 것이 중요하다고 배웠습니다.",
+    "followUps": []
+  },
+  {
+    "category": "근무조건",
+    "question": "업무가 몰려 야근이 필요한 상황에 대해서 어떻게 생각하나요?",
+    "answer": "서비스 장애나 중요한 배포처럼 필요한 시점에 추가 대응이 필요한 상황은 있을 수 있다고 생각합니다. 그런 상황에서는 팀과 함께 책임지고 대응하겠습니다. 다만 반복적으로 야근에 의존하기보다 일정과 우선순위를 조정하고 원인을 개선해서 같은 상황이 계속 반복되지 않도록 하는 것이 더 중요하다고 생각합니다.",
+    "followUps": []
+  },
+  {
+    "category": "근무조건",
+    "question": "고객사 구축이나 파견이 필요한 경우 괜찮나요?",
+    "answer": "업무상 필요한 고객사 구축이나 일정 기간의 파견 자체에는 열려 있습니다. 다만 실제 역할과 기간, 근무 방식은 업무를 수행하기 위해 필요한 범위인지 확인하고 회사의 운영 방식에 맞춰 협의하며 대응하겠습니다.",
+    "followUps": []
+  },
+  {
+    "category": "협업",
+    "question": "사용해본 협업 도구는 무엇인가요?",
+    "answer": "실무와 개인 개발에서 Git 기반 형상 관리를 사용했고 이슈나 작업 단위로 코드를 관리해왔습니다. 최근 개인 프로젝트와 과제에서는 GitHub의 Issue와 Pull Request, GitHub Actions도 사용했습니다. 협업 도구 자체보다 작업 상태와 변경 이유를 팀이 확인할 수 있도록 남기는 것을 중요하게 생각합니다.",
+    "followUps": []
+  },
+  {
+    "category": "마무리",
+    "question": "5년 뒤 어떤 개발자가 되고 싶나요?",
+    "answer": "기능 구현뿐 아니라 서비스의 데이터 흐름과 운영 구조를 이해하고 성능이나 장애 문제가 생겼을 때 원인을 찾아 개선할 수 있는 백엔드 개발자가 되고 싶습니다. 특히 기업 시스템 간 연동과 데이터 처리 경험을 더 쌓아서 여러 고객 환경에서도 안정적으로 서비스를 연결하고 운영할 수 있는 개발자가 되고 싶습니다.",
+    "followUps": []
+  },
+  {
+    "category": "마무리",
+    "question": "마지막으로 궁금한 점이 있나요?",
+    "answer": "엔터프라이즈 개발팀에서 고객사 시스템 연동이나 구축 이후 운영 과정에서 가장 자주 마주치는 기술적인 문제는 무엇인지, 그리고 입사 초기에 백엔드 개발자에게 가장 먼저 기대하는 역할이 무엇인지 여쭤보고 싶습니다.",
+    "followUps": []
+  },
+  {
+    "category": "추가기술-RabbitMQ",
+    "question": "RabbitMQ에서 ACK는 무엇이고 Consumer 처리 중 장애가 나면 어떻게 되나요?",
+    "answer": "ACK는 Consumer가 메시지를 정상적으로 처리했다는 사실을 Broker에 알려주는 확인 응답입니다. Manual ACK 방식에서는 Consumer가 처리 완료 후 ACK를 보내고, ACK 전에 Consumer가 죽거나 연결이 끊기면 Broker가 메시지를 미처리 상태로 보고 다시 Queue에 넣어 다른 Consumer가 처리하도록 할 수 있습니다. 그래서 중복 전달 가능성을 고려해 Consumer 쪽 멱등성도 같이 필요합니다.",
+    "followUps": []
+  },
+  {
+    "category": "추가기술-RabbitMQ",
+    "question": "RabbitMQ의 Exchange, Queue, Consumer 관계를 설명해주세요.",
+    "answer": "Producer가 메시지를 Exchange로 보내면 Exchange가 Routing Rule에 따라 적절한 Queue로 메시지를 전달합니다. Queue는 메시지를 보관하고 Consumer가 Queue에서 메시지를 가져가 실제 작업을 처리합니다. 즉 Exchange는 라우팅, Queue는 보관, Consumer는 실제 처리를 담당한다고 이해하고 있습니다.",
+    "followUps": []
+  },
+  {
+    "category": "추가기술-RabbitMQ",
+    "question": "DLQ는 무엇이고 언제 사용하나요?",
+    "answer": "DLQ는 정상 처리에 반복적으로 실패한 메시지를 일반 Queue와 분리해 보관하는 Queue입니다. 계속 재시도해도 해결되지 않는 메시지가 정상 메시지 처리를 방해하지 않도록 격리하고, 실패 원인을 확인한 뒤 수정하거나 재처리할 때 사용합니다.",
+    "followUps": []
+  },
+  {
+    "category": "추가기술-AWS",
+    "question": "AWS Security Group은 무엇인가요?",
+    "answer": "Security Group은 EC2나 ENI 같은 자원에 적용하는 상태 기반의 가상 방화벽입니다. 어떤 Source에서 어떤 Port와 Protocol로 들어오는 트래픽을 허용할지 Inbound Rule로 정하고, 외부로 나가는 트래픽도 Outbound Rule로 제어할 수 있습니다.",
+    "followUps": []
+  },
+  {
+    "category": "추가기술-AWS",
+    "question": "Internet Gateway와 NAT Gateway의 차이는 무엇인가요?",
+    "answer": "Internet Gateway는 VPC와 인터넷 사이의 직접 통신 경로를 제공하고 Public Subnet의 자원이 인터넷과 통신할 때 사용됩니다. NAT Gateway는 주로 Private Subnet의 인스턴스가 외부 인터넷으로 요청을 보낼 수 있게 하되 외부에서 해당 인스턴스로 직접 들어오는 연결은 허용하지 않도록 할 때 사용합니다.",
+    "followUps": []
+  }
+]
